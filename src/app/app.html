@@ -1,0 +1,89 @@
+<ion-menu [content]="content" persistent="true">
+
+    <ion-header>
+        <ion-toolbar style="min-height: 8em" color="base">
+            <ion-title class="menuheading" style="text-decoration: underline; font-size:35px; font-weight: bold; color:#FFFFFF;font-family: 'Open Sans Condensed', arial, sans">KULAAZ</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+
+        <ul class="list-items-ul">
+            <li menuClose *ngIf="user.isLogin">
+                Account
+            </li>
+            <li menuClose *ngIf="user.isLogin">
+                Buy
+            </li>
+            <li menuClose *ngIf="user.isLogin">
+                Send
+            </li>
+            <li menuClose *ngIf="user.isLogin">
+                Redeem
+            </li>
+            <li menuClose *ngIf="user.isLogin">
+                Messages
+            </li>
+
+            <li menuClose *ngIf="user.isLogin" (click)="openPage('MyContactsPage')">
+                Contact
+            </li>
+            <!-- (click)="openPage('MyGroupsPage')" -->
+            <li menuClose *ngIf="user.isLogin" (click)="openPage('MyGroupsPage')">
+                Group </li>
+            <li menuClose *ngIf="user.isLogin">
+                Profile
+                <ul class="nested-list" menuClose>
+                    <li (click)="openPage('UpdateProfilePage')"> - Personal Info</li>
+                    <li (click)="openPage('UpdateBillingAddressPage')"> - Billing Address and Credit Card </li>
+                </ul>
+            </li>
+            <li menuClose>
+                About
+                <ul class="nested-list">
+                    <li> - Home</li>
+                    <li> - About</li>
+                    <li> - How?</li>
+                    <li> - Contact</li>
+                    <li> - FAQ</li>
+                    <li> - Terms</li>
+                </ul>
+            </li>
+            <li (click)="openPage('ChangePasswordPage')" menuClose *ngIf="user.isLogin">
+                Change Password
+            </li>
+            <li (click)="openPage('LoginPage')" menuClose *ngIf="user.isLogin">
+                Sign Out
+            </li>
+        </ul>
+        <!-- <ion-list no-lines style="padding: 1em 0em 0em 1em">
+            <ion-item menuClose>
+                My Account
+            </ion-item>
+            <ion-item menuClose>
+                Contact
+            </ion-item>
+            <ion-item menuClose>
+                Group
+            </ion-item>
+            <ion-item menuClose>
+
+               
+
+            </ion-item>
+            <ion-item menuClose>
+                Sign Out
+
+            </ion-item> -->
+        <!-- <ion-item *ngFor="let p of pages" style="height: 30px">
+                <button [class.activePageHighlight]="checkActive(p)" ion-item menuClose (click)="openPage(p)">
+                        <ion-icon item-left [name]="p.icon"></ion-icon>         {{p.title}}
+                 </button>
+            </ion-item>-->
+
+        <!-- </ion-list> -->
+
+    </ion-content>
+
+</ion-menu>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

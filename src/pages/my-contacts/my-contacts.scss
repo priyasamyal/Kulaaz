@@ -1,0 +1,49 @@
+page-my-contacts {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .btns {
+            button {
+                font-size: 10px;
+            }
+        }
+        .contact-container {
+            div {
+                border: 1px solid;
+                height: 5em;
+                padding: 3px;
+            }
+            .contact-edit {
+                float: right;
+                color: purple;
+                text-decoration: underline;
+            }
+        }
+    }
+}

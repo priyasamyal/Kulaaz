@@ -1,0 +1,121 @@
+page-send {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .title {
+            font-size: 1.6rem;
+        }
+        .btn {
+            font-size: 1rem;
+        }
+        .table-hdr {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .table-main {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .table-sub-main {
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .table-footer {
+            font-size: 8px;
+            font-weight: 700;
+        }
+        .text-field {
+            width: 80%;
+            margin-right: 20%;
+        }
+    }
+    .item.item-md .checkbox-md {
+        margin-left: 0px;
+        position: static;
+        display: block;
+        margin-right: 4px;
+    }
+    .item.item-ios .checkbox-ios {
+        margin-left: 0px;
+        position: static;
+        display: block;
+        margin-right: 3px;
+    }
+    .radio-item {
+        font-size: 10px;
+        font-weight: bold;
+    }
+    .add-border {
+        border: 1px solid;
+    }
+    .border-row {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+    .item-ios .radio-ios {
+        position: static;
+        display: block;
+        margin: 8px 11px 8px 8px;
+        border-radius: 50%;
+        position: relative;
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #787878;
+        // border: 1.5px solid black;
+        // border-radius: 50%;
+        // height: 23px;
+    }
+    .radio-ios .radio-checked .radio-inner {
+        left: 6px;
+        top: 0px;
+        position: absolute;
+        width: 5px;
+        height: 12px;
+        border-width: 2px;
+        border-top-width: 0;
+        border-left-width: 0;
+        border-style: solid;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .avail {
+        font-size: 8px;
+        color: red;
+        font-weight: bold;
+    }
+}
+
+page-send .item-ios .radio-ios {
+    margin: 11px 0px 8px 0px;
+    width: 18px;
+    position: relative;
+}

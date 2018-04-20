@@ -1,0 +1,65 @@
+page-update-profile {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3em;
+        border-radius: 3px;
+        #heading {
+            padding-bottom: 0px;
+        }
+        .item-md,
+        .item-ios {
+            margin-bottom: 1em;
+        }
+        .list-header {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 1em;
+        }
+        ion-select {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .update-btn {
+            color: #fff;
+            background-color: #003333;
+            font-size: 2rem;
+            height: 1.8em;
+        }
+        .footer {
+            margin-top: 1em;
+            padding: 0em 1rem 0em 1rem;
+        }
+        .check-container {
+            padding: 0px 0px 0px 10px;
+            ion-label {
+                font-size: 16px;
+                font-weight: 500;
+            }
+        }
+    }
+}

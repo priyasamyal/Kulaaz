@@ -1,0 +1,55 @@
+<!--
+  Generated template for the MyGroupsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+        <ion-title class="header-title">Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            My groups
+        </ion-list-header>
+        <button ion-button text-uppercase color="base" (click)="goToPage('CreateGroupPage')">create group</button>
+        <ion-grid>
+            <ion-row class="member-list" *ngFor="let i of myGroups">
+
+                <ion-col col-12>
+                    <div>
+                        <span class="right-items"> <span (click)="goToPage('CreateGroupPage',i)">edit</span>&nbsp;<span (click)="goToPage('InviteMembersPage',i)">invite</span>&nbsp;
+                        <span (click)="goToPage('ViewMembersPage',i)">view members</span>
+                        </span>
+                        <br><br>
+                        <span class="title">Name :</span>{{i.hrcUserGroup.hrcUserGroupName}}<br><br>
+                        <span class="title">Start Date :</span>{{i.hrcUserGroup.startDate.date}} &nbsp;&nbsp; <span class="title">End Date :</span>{{i.hrcUserGroup.endDate.date}}<br><br>
+                        <span class="title">Purpose : </span>{{showPurpose(i.hrcUserGroup)}} &nbsp;&nbsp; <span class="title">Location :</span>XXX<br><br>
+                        <span class="title">Objectives : </span>{{i.hrcUserGroup.hrcUserGroupObjectives}}<br><br>
+                        <span class="title">Invited : </span>XXX&nbsp;&nbsp; <span class="title">Joined : </span>XXX &nbsp;&nbsp; <span class="title">Contributed :</span>XXX<br><br>
+                        <span class="title">Total Points Contributed : </span>XXXXX <br><br>
+                        <span class="title">Worth : </span> $XXX<br>
+
+
+
+
+                        <span class="foot" *ngIf="i.hrcUserGroup.hrcIsUserGroupActive">Status : Active </span>
+                        <span class="foot" *ngIf="!i.hrcUserGroup.hrcIsUserGroupActive">Status : InActive </span>
+                    </div>
+                </ion-col>
+
+
+            </ion-row>
+
+
+        </ion-grid>
+
+    </div>
+
+</ion-content>

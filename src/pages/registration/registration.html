@@ -1,0 +1,87 @@
+<!--
+  Generated template for the RegistrationPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="base">
+        <button ion-button menuToggle end>
+                            <ion-icon name="menu"></ion-icon>
+                          </button>
+        <ion-title>Kulaaz</ion-title>
+
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list no-lines>
+            <ion-list-header class="list-head" text-uppercase color="base">
+                sign up
+            </ion-list-header>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Email</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="register_data.email"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading"> Password</ion-label>
+                <ion-input type="password" class="text-field" [(ngModel)]="register_data.password"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Confirm Password</ion-label>
+                <ion-input type="password" class="text-field" [(ngModel)]="register_data.confirm_password"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">First Name</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="register_data.first_name"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Last Name</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="register_data.last_name"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Birthday</ion-label>
+                <ion-datetime class="text-field" displayFormat="DD/MM/YYYY" [(ngModel)]="register_data.birthday"></ion-datetime>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Country</ion-label>
+                <ion-select class="select-box" [(ngModel)]="register_data.country">
+                    <ion-option *ngFor="let c of countries" value={{c.hrcCountryId}}>{{c.hrcCountryName}} </ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Phone</ion-label>
+                <ion-input type="tel" class="text-field" [(ngModel)]="register_data.phone"></ion-input>
+            </ion-item>
+            <ion-item style="margin-bottom:0px;" no-lines>
+                <ion-label stacked class="title" id="heading">Auto Credit Points</ion-label>
+                <ion-checkbox color="base" [(ngModel)]="auto_credit" end></ion-checkbox>
+            </ion-item>
+            <ion-item no-lines style="margin-bottom: 0px;">
+                <ion-label stacked class="title" id="heading">Can be contacted by? </ion-label>
+
+            </ion-item>
+
+            <ion-row class="check-container">
+                <ion-col col-4 class="col-check">
+                    <ion-checkbox color="base" [(ngModel)]="contact_by_text" class="check"></ion-checkbox>
+                    <ion-label class="title" id="name">Text </ion-label>
+                </ion-col>
+                <ion-col col-4 class="col-check">
+                    <ion-checkbox color="base" [(ngModel)]="contact_by_email" class="check"></ion-checkbox>
+                    <ion-label class="title" id="name">Email </ion-label>
+                </ion-col>
+                <ion-col col-4 class="col-check">
+                    <ion-checkbox color="base" [(ngModel)]="contact_by_phone" class="check"></ion-checkbox>
+                    <ion-label class="title" id="name">Phone </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-list>
+        <div class="footer">
+            <button ion-button block text-uppercase color="base" (click)="goToSignIn()">sign up</button>
+
+        </div>
+    </div>
+</ion-content>

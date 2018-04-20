@@ -1,0 +1,77 @@
+<!--
+  Generated template for the EditContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+
+        <ion-title>Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            {{title}}
+        </ion-list-header>
+        <button ion-button text-uppercase color="base" class="redeem" (click)='saveContact()'>Save Contact</button>
+
+        <ion-list class="list1">
+            <ion-item no-lines>
+                <ion-label stacked class="title">Contact's First Name</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="hrcUserContact.hrcUserContactFirstname"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Contact's Last Name</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="hrcUserContact.hrcUserContactLastname"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Contact's E-mail</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="hrcUserContact.hrcUserContactEmail"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Contact's Phone No.</ion-label>
+                <ion-input type="tel" class="text-field" [(ngModel)]="hrcUserContact.hrcUserContactPhone"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Contact's Location</ion-label>
+                <ion-select class="select-box" [(ngModel)]="hrcUserContact.hrcUserContactCountryId">
+                    <ion-option *ngFor="let c of countries" value={{c.hrcCountryId}}>{{c.hrcCountryName}} </ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <ion-list class="list2">
+            <ion-list-header text-uppercase color="base">
+                contact's key events and dates
+            </ion-list-header>
+
+            <ion-grid>
+                <ion-row *ngFor="let i of hrcUserContactKeyEventList">
+                    <ion-col col-6>
+                        <ion-label stacked>Event Type</ion-label>
+                        <ion-select [(ngModel)]="i.hrcUserContactKeyEventTypeId">
+                            <ion-option value='0'>Select</ion-option>
+                            <ion-option *ngFor="let e of eventTypes" value={{e.hrcUserContactKeyEventTypeId}}>{{e.hrcUserContactKeyEventTypeName}} </ion-option>
+                        </ion-select>
+                        <ion-input [(ngModel)]="i.hrcUserContactKeyEventOtherDesc" *ngIf="i.hrcUserContactKeyEventTypeId==3" style="margin-top: 4px;" type="text" placeholder="description" class="text-field"></ion-input>
+                    </ion-col>
+                    <ion-col col-6>
+                        <ion-label stacked>Event Date</ion-label>
+                        <ion-datetime class="text-field" displayFormat="DD/MM/YYYY" [(ngModel)]="i.hrcUserContactKeyEventDate"></ion-datetime>
+                    </ion-col>
+                </ion-row>
+
+
+            </ion-grid>
+            <span text-right (click)="show()">{{displayText}}</span>
+
+        </ion-list>
+
+    </div>
+</ion-content>

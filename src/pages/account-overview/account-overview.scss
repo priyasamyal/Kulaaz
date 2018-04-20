@@ -1,0 +1,66 @@
+page-account-overview {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .list-sub-header {
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 2em;
+            margin-left: 4%;
+            width: 92%;
+        }
+        .sub-points {
+            font-weight: 600;
+            color: black;
+            font-size: 11px;
+        }
+        .links {
+            color: purple;
+            text-decoration: underline;
+        }
+        .firstBox {
+            ion-col {
+                border: 1px solid;
+                margin: 2px;
+            }
+            .values {
+                position: absolute;
+                bottom: 10px;
+                right: 40%;
+            }
+            .rows {
+                margin-top: 2px;
+                height: 6px;
+                ion-col {
+                    margin: 2px;
+                }
+            }
+        }
+    }
+}

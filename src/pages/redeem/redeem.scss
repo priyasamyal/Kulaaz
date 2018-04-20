@@ -1,0 +1,133 @@
+page-redeem {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .redeem {
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .item-point {
+            span {
+                font-weight: bold;
+                font-size: 14px;
+            }
+            h3 {
+                font-size: 20px;
+                font-weight: bolder
+            }
+            div {
+                border: 1px solid;
+                padding: 5px;
+            }
+        }
+        .item-list-title {
+            ion-col {
+                border: 1px solid;
+            }
+            span {
+                font-size: 12px;
+                font-weight: bold;
+            }
+        }
+        .item-list {
+            ion-col {
+                border: 1px solid;
+            }
+            span {
+                font-size: 10px;
+                font-weight: 500;
+            }
+        }
+        .cart-btn {
+            button {
+                font-size: 9px;
+                font-weight: 500;
+                height: 22px;
+            }
+        }
+        .catalog-header {
+            font-size: 15px;
+            font-weight: bold;
+            height: 1rem
+        }
+        .display-item {
+            div {
+                // background: red;
+                border-radius: 3px;
+            }
+            span {
+                font-size: 12px;
+                font-weight: bolder;
+            }
+        }
+        .basket-btn {
+            font-size: 5px;
+            font-weight: 100;
+            height: 3.2em;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        .filter-title {
+            span {
+                font-weight: bolder;
+                font-size: 15px;
+            }
+        }
+        .search-grid {
+            .text-field {
+                height: 87%;
+                margin-top: 3px;
+            }
+            button {
+                font-size: 0.9em;
+                font-weight: 500;
+                height: 100%;
+                height: 3.2em;
+            }
+        }
+        .select-ios {
+            padding: 5px 5px 5px 16px;
+        }
+        .select-md {
+            padding: 5px 5px 5px 16px;
+        }
+        .paging {
+            float: right;
+            color: blue;
+            span {
+                text-decoration: underline;
+            }
+        }
+        .select-box1 {
+            max-width: 100%;
+            height: 3.8rem;
+            margin-top: 5px;
+        }
+    }
+}

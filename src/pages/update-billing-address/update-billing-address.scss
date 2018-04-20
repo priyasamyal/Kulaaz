@@ -1,0 +1,63 @@
+page-update-billing-address {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3em;
+        border-radius: 3px;
+        #heading {
+            padding-bottom: 0px;
+        }
+        .item-md,
+        .item-ios {
+            margin-bottom: 1em;
+        }
+        .list-header {
+            font-size: 1.3rem;
+            font-weight: bolder;
+            margin-bottom: 3em
+        }
+        .sub-heading {
+            font-size: 1.6rem;
+            margin-bottom: 1em;
+            width: 94%;
+            margin-left: 4%;
+        }
+        ion-select {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .update-btn {
+            color: #fff;
+            background-color: #003333;
+            font-size: 2rem;
+            height: 1.8em;
+        }
+        .footer {
+            padding: 0em 1rem 0em 1rem;
+        }
+    }
+}

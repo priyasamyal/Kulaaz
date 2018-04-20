@@ -1,0 +1,367 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.list-items-ul {
+    font-size: 2rem;
+    padding: 0em 0em 0em 2em;
+    li {
+        padding: 3px;
+    }
+}
+
+.nested-list {
+    li {
+        font-size: 1.7rem;
+        padding: 3px
+    }
+}
+
+.menuheading {
+    font-family: 'Open Sans Condensed', arial, sans;
+    text-decoration: underline;
+    font-size: 25px;
+    font-weight: bold;
+    color: #FFFFFF
+}
+
+.loading-md .spinner-crescent circle {
+    stroke: map-get($colors, base);
+}
+
+.tabs-md-base .tab-button[aria-selected=true] .tab-button-icon {
+    color: #fff;
+    font-size: 2.6rem;
+}
+
+.tabs-md .tab-button[aria-selected=true] {
+    color: #488aff;
+    padding: 0;
+    border-bottom: 2px solid white;
+}
+
+.tabs-md-base .tab-button[aria-selected=true],
+.tabs-md-base .tab-button[aria-selected=true] .tab-button-icon {
+    color: #fff;
+}
+
+.tabs-ios .tab-button[aria-selected=true] .tab-button-icon {
+    color: #fff;
+    font-size: 2.6rem;
+}
+
+.tabs-ios .tab-button[aria-selected=true] {
+    color: white;
+    padding: 0;
+    border-bottom: 2px solid white;
+}
+
+.alert-md .alert-title,
+.alert-ios .alert-title {
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+}
+
+.alert-md .alert-message,
+.alert-md .alert-input-group {
+    padding: 15px 24px 24px;
+    color: black;
+    font-weight: 500;
+    font-size: 16px
+}
+
+.alert-md .alert-head {
+    text-align: left;
+    text-align: start;
+    padding: 21px 27px 15px;
+    background: #003333;
+}
+
+.alert-ios .alert-head {
+    text-align: center;
+    padding: 12px 16px 7px;
+    background: #003333;
+}
+
+.alert-ios .alert-message,
+.alert-ios .alert-input-group {
+    text-align: center;
+    font-size: 13px;
+    color: black;
+    padding: 19px 16px 21px;
+    font-size: medium;
+}
+
+.alert-md .alert-button {
+    text-align: right;
+    text-align: end;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #003333;
+    background-color: transparent;
+    margin: 0 30px 0 0;
+    padding: 8px;
+}
+
+.activePageHighlight {
+    background-color: lightgray;
+}
+
+.select-box {
+    background-color: #dedede;
+    border: 1px solid darkgrey;
+}
+
+.list-ios {
+    margin: 0px 0 0px;
+}
+
+.item-label-stacked .text-input-md,
+.item-label-floating .text-input-md {
+    margin-left: 1rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: calc(100% - 8px);
+}
+
+.item-ios.item-label-stacked .text-input,
+.item-ios.item-label-floating .text-input {
+    margin-left: 1rem;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    width: calc(100% - 8px);
+}
+
+.alert [aria-checked=true] .alert-radio-label {
+    color: map-get($colors, base);
+}
+
+.alert-ios [aria-checked=true] .alert-radio-label {
+    color: map-get($colors, base);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.alert-wp [aria-checked=true] .alert-radio-label {
+    color: map-get($colors, base);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.alert-ios [aria-checked=true] .alert-radio-inner {
+    left: 7px;
+    top: -7px;
+    position: absolute;
+    width: 6px;
+    height: 12px;
+    border-width: 2px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-style: solid;
+    border-color: map-get($colors, base);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/*alert box in android*/
+
+.alert-md .alert-button,
+{
+    text-align: right;
+    text-align: end;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: map-get($colors, base);
+    background-color: transparent;
+    margin: 0 8px 0 0;
+    padding: 10px;
+}
+
+.alert-md .alert-radio-inner {
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    position: absolute;
+    width: 8px;
+    background-color: map-get($colors, base);
+    -webkit-transform: scale3d(0, 0, 0);
+    transform: scale3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 280ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-md [aria-checked=true] .alert-radio-icon {
+    border-color: map-get($colors, base);
+}
+
+.alert-md [aria-checked=true] .alert-radio-label {
+    color: map-get($colors, base);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.alert-ios .alert-button {
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-width: 50%;
+    height: 44px;
+    border-top: 0.55px solid #dbdbdf;
+    border-right: 0.55px solid #dbdbdf;
+    font-size: 17px;
+    color: map-get($colors, base);
+    background-color: transparent;
+}
+
+.errors {
+    margin-left: 13px;
+    padding: 5px;
+    color: red;
+}
+
+.md {
+    .title {
+        color: black;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    .text-field {
+        border: 1px solid darkgray;
+    }
+    .check {
+        margin-top: 10px;
+        padding: 4px;
+    }
+    .col-check {
+        display: flex;
+    }
+    .check-container {
+        margin-top: -1.3em;
+    }
+    /* android list heading and input box */
+    .list-md .item-input:last-child {
+        border-bottom: 1px solid white;
+    }
+    .item-input-has-focus .label-md[stacked],
+    .input-has-focus .label-md[stacked],
+    .item-input-has-focus .label-md[floating],
+    .input-has-focus .label-md[floating] {
+        color: black;
+    }
+    .item-md.item-input.item-input-has-focus .item-inner,
+    .item-md.item-input.input-has-focus .item-inner {
+        border-bottom-color: white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .list-md .item-input.input-has-focus:last-child {
+        border-bottom-color: white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .list-md .list-md .item-input:last-child {
+        border-bottom: 1px solid white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+    .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+    .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+        border-bottom-color: white;
+        -webkit-box-shadow: inset 0 -1px 0 0 white;
+        box-shadow: inset 0 -1px 0 0 white;
+    }
+}
+
+.ios {
+    .title {
+        color: black;
+        font-size: 1.8rem;
+        font-weight: 600;
+    }
+    .text-field {
+        border: 1px solid darkgray;
+    }
+    .check {
+        margin-top: 7px;
+        padding: 3px;
+    }
+    .col-check {
+        display: flex;
+    }
+    .check-container {
+        margin-top: -9px;
+    }
+}
+
+.wp {
+    .title {
+        color: black;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    .item-input-has-focus .label-wp[stacked],
+    .input-has-focus .label-wp[stacked],
+    .item-input-has-focus .label-wp[floating],
+    .input-has-focus .label-wp[floating] {
+        color: black;
+    }
+    .item-wp.item-input.item-input-has-focus .text-input,
+    .item-wp.item-input-has-focus .text-input {
+        border-color: rgba(0, 0, 0, 0.5);
+    }
+    .check {
+        margin-top: 10px;
+        padding: 4px;
+    }
+    .col-check {
+        display: flex;
+    }
+    .check-container {
+        margin-top: -1.3em;
+    }
+    /* alert design in windows*/
+    .alert-wp .alert-radio-inner {
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        position: absolute;
+        display: none;
+        width: 8px;
+        height: 8px;
+        background: map-get($colors, base);
+    }
+    .alert-wp .alert-wrapper {
+        border-radius: 0;
+        width: 100%;
+        max-width: 520px;
+        border: 1px solid map-get($colors, base);
+        ;
+        background: #e6e6e6;
+    }
+}

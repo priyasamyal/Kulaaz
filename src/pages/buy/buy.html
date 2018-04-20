@@ -1,0 +1,194 @@
+<!--
+  Generated template for the BuyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+        <button ion-button menuToggle>
+                      <ion-icon name="menu"></ion-icon>
+                    </button>
+        <ion-title>Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container" *ngIf="!limit_exceeds">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            buy kulaaz points
+        </ion-list-header>
+
+        <div>
+            <ion-grid padding>
+                <ion-row>
+                    <ion-col col-5 text-center class="add-border">
+                        <span class="table-hdr">Cost of Points</span><br><br>
+                        <span class="table-sub-main">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}}</span><br>
+                        <span class="table-main"> {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}}&nbsp;{{data.hrcPointCost}}</span><br><br>
+
+                    </ion-col>
+                    <ion-col text-center class="add-border">
+                        <span class="table-hdr">Fee</span><br><br>
+                        <span class="table-sub-main">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}}</span><br>
+                        <span class="table-main"> {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}}&nbsp;{{data.hrcPointProcessingFee}}</span><br><br>
+
+                    </ion-col>
+                    <ion-col text-center class="add-border">
+                        <span class="table-hdr">Total</span><br><br>
+                        <span class="table-sub-main">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}}</span><br>
+                        <span class="table-main"> {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}}&nbsp;{{data.hrcPointCost + data.hrcPointProcessingFee}}</span><br><br>
+                        <span class="table-footer">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}} : {{user.user_session.hrcCountry.hrcCountryCurrencyName}}</span>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col col-6 text-left>
+
+                    </ion-col>
+                    <ion-col col-6 text-right (click)="onBuyPoints()">
+                        <button class="btn-buy" ion-button block text-uppercase color="base">buy kulaaz points</button>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+            <!-- <div style="width: 90% ; margin-left: 18px; margin-bottom: 2rem;"> -->
+            <ion-item no-lines>
+                <ion-label style="margin-left: 3px" stacked class="title" id="heading">Select points to be purchased</ion-label>
+                <ion-select [(ngModel)]="point" class="select-box" style="max-width: 80%;" (ionChange)="points_selected($event)">
+                    <ion-option *ngFor="let m of points_to_display" value={{m.value}}>{{m.value}} </ion-option>
+                </ion-select>
+                <span style="font-size: 9px;width: 90% ; margin-left: 18px; margin-bottom: 2rem;">
+                        Max annual purchase limit {{user.user_session.hrcCountry.hrcMaxAnnualPurchLimit  * user.user_session.hrcCountry.hrcCountryPointsPerUnitOfCurrency}} ; YTD:{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchasedYearToDate}}
+             </span>
+            </ion-item>
+
+            <span style="font-size: 9px;width: 90% ; margin-left: 18px; margin-bottom: 2rem;font-weight: bold">
+                        Max annual purchase limit {{user.user_session.hrcCountry.hrcMaxAnnualPurchLimit  * user.user_session.hrcCountry.hrcCountryPointsPerUnitOfCurrency}} ; YTD:{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchasedYearToDate}}
+             </span>
+            <!-- </div> -->
+            <ion-list radio-group style="margin-top: 2rem">
+                <ion-list-header text-uppercase color="base" class="list-subheader">
+                    credit card information
+                </ion-list-header>
+
+                <ion-item no-lines style="margin-bottom: 0px;" *ngIf='!newUser'>
+                    <ion-label stacked class="title" id="heading">Payment Option &nbsp; <span class="links" (click)="edit()"> edit</span> </ion-label>
+
+                </ion-item>
+                <ion-item *ngIf='!newUser'>
+                    <ion-label class="heading">{{display_card_type}} </ion-label>
+                    <ion-radio (click)="selected('current')" color="base" value="current" checked="true"></ion-radio>
+                </ion-item>
+                <ion-item *ngIf='!newUser'>
+                    <ion-radio (click)="selected('new')" color="base" value="new"></ion-radio>
+                    <ion-label class="heading">New Credit Card </ion-label>
+                </ion-item>
+                <ion-item no-lines *ngIf="!change">
+                    <ion-label stacked class="title" id="heading">CCV Code</ion-label>
+                    <ion-input [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcCCVCode" type="tel" class="text-field" required></ion-input>
+                </ion-item>
+
+            </ion-list>
+            <div *ngIf="change">
+                <ion-list>
+
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Credit Card Type</ion-label>
+                        <ion-select class="select-box" [(ngModel)]="user.user_session.hrcUserCreditCard.hrcCreditCardTypeId" style="max-width: 80%;">
+                            <ion-option value="0">Select </ion-option>
+                            <ion-option value=1>Visa</ion-option>
+                            <ion-option value=2>Master Card</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Credit Card No.</ion-label>
+                        <ion-input [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcNo" type="tel" class="text-field" required data.hrcUserCcNo></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Name on Card</ion-label>
+                        <ion-input [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcNameOnCard" type="text" class="text-field" required data.hrcUserCcNameOnCard></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">CCV Code</ion-label>
+                        <ion-input [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcCCVCode" type="tel" class="text-field" required data.hrcUserCcCCVCode></ion-input>
+                    </ion-item>
+                    <ion-item style="margin-bottom: -12px;" no-lines>
+                        <ion-label stacked class="title" id="heading">Expiration</ion-label>
+                    </ion-item>
+                    <div>
+                        <ion-grid>
+                            <ion-row style="width: 80%">
+                                <ion-col col-6>
+                                    <ion-select [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcExpirationMonth" class="select-box" style="max-width: 100%;">
+                                        <ion-option value='Select'>Select</ion-option>
+                                        <ion-option *ngFor="let m of months" value={{m.value}}>{{m.value}} </ion-option>
+                                    </ion-select>
+                                </ion-col>
+                                <ion-col col-6>
+                                    <ion-select [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcExpirationYear" class="select-box" style="max-width: 100%;">
+                                        <ion-option value='Select'>Select</ion-option>
+                                        <ion-option *ngFor="let y of years" value={{y.value}}>{{y.value}} </ion-option>
+                                    </ion-select>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
+
+                </ion-list>
+                <ion-list no-lines style="margin-top: 3em">
+                    <ion-list-header color="base" class="list-subheader">
+                        BILLING ADDRESS
+                    </ion-list-header>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Address Line 1</ion-label>
+                        <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine1"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Address Line2</ion-label>
+                        <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine2"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Address Line3</ion-label>
+                        <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine3"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">City</ion-label>
+                        <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressCity"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Postal code</ion-label>
+                        <ion-input type="tel" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressPostalCode"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">State</ion-label>
+                        <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressState"></ion-input>
+                    </ion-item>
+                    <ion-item no-lines>
+                        <ion-label stacked class="title" id="heading">Country</ion-label>
+                        <ion-select [(ngModel)]="user.user_session.hrcAddress.hrcCountryId" class="select-box" style="max-width: 80%;">
+                            <ion-option *ngFor="let c of countries" value={{c.hrcCountryId}}>{{c.hrcCountryName}} </ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-list>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="limit_exceeds">
+        <span>
+
+        You have reached your annual limit of purchase, which is  $ {{user.user_session.hrcCountry.hrcMaxAnnualPurchLimit  * user.user_session.hrcCountry.hrcCountryPointsPerUnitOfCurrency}}.
+        You can not purchase any more points for the year {{currentyear}}
+        
+</span>
+
+
+
+    </div>
+</ion-content>

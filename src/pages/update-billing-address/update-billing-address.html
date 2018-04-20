@@ -1,0 +1,115 @@
+<!--
+  Generated template for the UpdateBillingAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+        <ion-title class="header-title">Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <div color="base" class="list-header">
+            <ion-list-header text-uppercase color color="base">
+                Credit Card and billing information
+            </ion-list-header>
+
+        </div>
+        <ion-list no-lines>
+            <ion-list-header color="base" class="sub-heading">
+                CREDIT CARD
+            </ion-list-header>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Credit Card Type</ion-label>
+                <ion-select [(ngModel)]="user.user_session.hrcUserCreditCard.hrcCreditCardTypeId" class="select-box">
+                    <ion-option value="select">Select </ion-option>
+                    <ion-option value=1>Visa</ion-option>
+                    <ion-option value=2>Master Card</ion-option>
+
+                </ion-select>
+            </ion-item>
+
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Credit Card No.</ion-label>
+                <ion-input type="tel" class="text-field" [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcNo"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Name on Card</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcNameOnCard"></ion-input>
+            </ion-item>
+            <ion-item style="margin-bottom: -12px;" no-lines>
+                <ion-label stacked class="title" id="heading">Expiration</ion-label>
+
+            </ion-item>
+            <div>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-6>
+                            <ion-select [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcExpirationMonth" class="select-box">
+                                <ion-option *ngFor="let m of months" value={{m.value}}>{{m.value}} </ion-option>
+                            </ion-select>
+                        </ion-col>
+                        <ion-col col-6>
+                            <ion-select [(ngModel)]="user.user_session.hrcUserCreditCard.hrcUserCcExpirationYear" class="select-box">
+                                <ion-option *ngFor="let y of years" value={{y.value}}>{{y.value}} </ion-option>
+                            </ion-select>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+
+            </div>
+
+
+        </ion-list>
+        <ion-list no-lines style="margin-top: 3em">
+            <ion-list-header color="base" class="sub-heading">
+                BILLING ADDRESS
+            </ion-list-header>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Address Line 1</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine1"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Address Line2</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine2"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Address Line3</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressLine3"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">City</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressCity"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Postal code</ion-label>
+                <ion-input type="tel" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressPostalCode"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">State</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="user.user_session.hrcAddress.hrcAddressState"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Country</ion-label>
+                <ion-select [(ngModel)]="user.user_session.hrcAddress.hrcCountryId" class="select-box">
+                    <ion-option *ngFor="let c of countries" value={{c.hrcCountryId}}>{{c.hrcCountryName}} </ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+
+        <div class="footer">
+            <br>
+            <button class="update-btn" ion-button block text-uppercase color="base" (click)="update()">update</button>
+
+        </div>
+    </div>
+
+
+
+</ion-content>

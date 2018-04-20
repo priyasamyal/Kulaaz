@@ -1,0 +1,129 @@
+<!--
+  Generated template for the SendPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+        <button ion-button menuToggle>
+                        <ion-icon name="menu"></ion-icon>
+                      </button>
+        <ion-title (click)="sendGreeting()">Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            send kulaaz greetings
+        </ion-list-header>
+        <ion-grid>
+            <ion-row style="margin-bottom:2em">
+                <ion-col col-6 (click)="previewGreeting()">
+                    <button class="btn" ion-button block color="base">PREVIEW GREETING</button>
+
+                </ion-col>
+                <ion-col col-6>
+                    <button class="btn" text-sm ion-button block color="base" (click)="sendGreeting()">SEND KULAAZ GREETING</button>
+
+                </ion-col>
+            </ion-row>
+            <ion-row class="border-row">
+                <ion-col col-4 text-center class="add-border">
+                    <span class="table-hdr">Cost to you</span><br><br>
+                    <span class="table-sub-main">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}}</span><br>
+                    <span class="table-main"> {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}}&nbsp;{{send_data.cost}}</span><br><br>
+                    <span class="table-footer">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}} : {{user.user_session.hrcCountry.hrcCountryCurrencyName}}</span>
+                </ion-col>
+                <ion-col col-4 text-center class="add-border">
+                    <span class="table-hdr">Receiver gets</span><br><br>
+                    <span class="table-main" *ngIf='send_data.receiver_location=="Select"'> Location ?</span>
+                    <div *ngIf='send_data.receiver_location!="Select"'>
+                        <span class="table-sub-main">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}}</span><br>
+                        <span class="table-main">
+                           {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}}&nbsp;{{send_data.receivergets}}</span><br><br>
+                        <span class="table-footer">{{user.user_session.hrcCountry.hrcCountryCurrencyCode}} : {{user.user_session.hrcCountry.hrcCountryCurrencyName}}</span>
+
+                    </div>
+                </ion-col>
+                <ion-col col-4 text-center class="add-border">
+                    <span class="table-hdr">Receiver gets</span><br><br>
+                    <span class="table-main" *ngIf='send_data.receiver_location=="Select"'> Location ?</span>
+                    <span class="table-main" *ngIf='send_data.receiver_location!="Select"'>{{send_data.receivergetsinpoint}}</span>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-list radio-group>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Reciever Email</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]='send_data.receiver_email'></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Reciever Location</ion-label>
+
+                <ion-select class="select-box" [(ngModel)]='send_data.receiver_location' style="max-width: 80%;">
+                    <ion-option value='Select'>Select </ion-option>
+                    <ion-option *ngFor="let c of countries" value={{c.hrcCountryId}}>{{c.hrcCountryName}} </ion-option>
+                </ion-select>
+            </ion-item>
+
+            <div style="width: 90% ; padding-left: 10px; margin-top: 2rem;">
+                <ion-label style="margin-left: 3px" stacked class="title">Kulaaz points to send <span class='avail'>(Available {{user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchasedYearToDate}})</span></ion-label>
+                <ion-row>
+                    <ion-col col-10>
+                        <ion-input type="text" style="width: 100%" class="text-field" [(ngModel)]='send_data.send_points'></ion-input>
+                    </ion-col>
+                    <ion-col>
+                        <ion-icon name="remove-circle" (click)="selectPoints('-')"></ion-icon>
+                        <br>
+                        <ion-icon name="add-circle" (click)="selectPoints('+')"></ion-icon>
+
+                    </ion-col>
+                </ion-row>
+
+
+                <span style="font-size: 8px; font-weight: bold">
+                    Max annual limit {{user.user_session.hrcCountry.hrcCountryCurrencySymbol}} {{user.user_session.hrcCountry.hrcMaxAnnualSendLimit * user.user_session.hrcCountry.hrcCountryPointsPerUnitOfCurrency}} ; YTD:{{user.user_session.hrcRwrdPointBalance.hrcUserPointsSentYearToDate}}
+                 </span>
+            </div>
+
+            <ion-item no-lines>
+                <ion-label stacked class="title">Greeting Type</ion-label>
+                <ion-select [(ngModel)]="send_data.type" class="select-box" style="max-width: 80%;" (ionChange)="change_radiotype($event)">
+                    <ion-option *ngFor="let m of greeting" value={{m.id}}>{{m.value}} </ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-grid *ngIf="send_data.type!=3">
+                <ion-row style="width: 80%" *ngFor="let g of greeting[index-1].category">
+                    <ion-col>
+                        <ion-item no-lines style=" min-height: 0px">
+                            <ion-radio color="base" (click)="addMessage(g)" [checked]="g.select"></ion-radio>
+                            <ion-label text-capitalize class="radio-item">{{g.value}} </ion-label>
+                        </ion-item>
+
+                    </ion-col>
+
+                </ion-row>
+            </ion-grid>
+
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Greeting Subject</ion-label>
+                <ion-input style="padding-right: 8px;font-size: 11px;font-weight: 500" type="text" class="text-field" [(ngModel)]='send_data.hrcRwrdPtsSentMsgSubj'></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Greeting Footer</ion-label>
+                <ion-input style="padding-right: 8px;font-size: 11px;font-weight: 500" type="text" class="text-field" [(ngModel)]='send_data.hrcRwdPtsSentMsgFooter'></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title" id="heading">Greeting Body</ion-label>
+                <ion-textarea type="text" style="padding-right: 8px;font-size: 11px;font-weight: 500" class="text-field" rows='5' [(ngModel)]='send_data.hrcRwdPtsSentMsgBody'></ion-textarea>
+            </ion-item>
+        </ion-list>
+
+    </div>
+</ion-content>

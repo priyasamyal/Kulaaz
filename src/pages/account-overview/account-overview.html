@@ -1,0 +1,139 @@
+<!--
+  Generated template for the AccountOverviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="base">
+        <button ion-button menuToggle>
+                    <ion-icon name="menu"></ion-icon>
+                  </button>
+        <ion-title>Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            account overview
+        </ion-list-header>
+
+        <div>
+            <ion-list-header class="list-sub-header" text-uppercase color="base">
+                points summary
+            </ion-list-header>
+            <ion-grid class="firstBox">
+                <ion-row text-center style="height: 7em;">
+                    <ion-col>
+                        <span class="sub-points">Purchase points Available</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchased}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span class="sub-points">Received points Available</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalanceReceived}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span class="sub-points">Total Points Available to Redeem</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalanceForRedemption + user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchased}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row text-center style="height: 5em;" class='rows'>
+                    <ion-col>
+                        <span class="sub-points">Purchased Year To Date</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchasedYearToDate}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span class="sub-points">Sent Year To Date</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointsSentYearToDate}}</span>
+                    </ion-col>
+
+                </ion-row>
+                <ion-row text-center style="height: 5em;" class='rows'>
+                    <ion-col>
+                        <span class="sub-points">Received Year To Date</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointsRcvdYearToDate}}</span>
+                    </ion-col>
+                    <ion-col>
+                        <span class="sub-points">Redeemed Year To Date</span><br>
+                        <span class="values">{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalanceRdmdYearToDate}}</span>
+                    </ion-col>
+
+                </ion-row>
+                <!-- <ion-row>
+                    <ion-col col-6>
+                        <span class="sub-points">Points Redeemed Year to Date :- 150</span>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="sub-points">Points Sent Year to Date :- 150</span>
+                    </ion-col>
+                </ion-row> -->
+            </ion-grid>
+
+
+        </div>
+        <div>
+            <ion-list-header class="list-sub-header" text-uppercase color="base">
+                messages
+            </ion-list-header>
+            <ion-grid style="padding: 0em 1rem 0em 2rem">
+                <ion-row>
+                    <ion-col col-6>
+                        <a class="links">Message-1-Subject</a>
+
+
+                    </ion-col>
+                    <ion-col col-6>
+                        <a class="links">Message-2-Subject</a>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <a class="links">Message-3-Subject</a>
+                    </ion-col>
+                    <ion-col col-6>
+                        <a class="links">Message-4-Subject</a>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+
+        </div>
+        <div>
+            <ion-list-header class="list-sub-header" text-uppercase color="base">
+                recent transactions
+            </ion-list-header>
+            <ion-grid style=" padding: 0em 0em 0em 2em;">
+                <ion-row>
+                    <ion-col col-6>
+                        <span class="sub-points">Point Purchases</span><br>
+                        <span>Transaction1</span>
+                        <span>Transaction2</span>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="sub-points">Point Redeems</span><br>
+                        <span>Transaction1</span>
+                        <span>Transaction2</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <span class="sub-points">Received</span><br>
+                        <span>Transaction1</span>
+                        <span>Transaction2</span>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="sub-points">Sent</span><br>
+                        <span>Transaction1</span>
+                        <span>Transaction2</span>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+        </div>
+    </div>
+
+</ion-content>

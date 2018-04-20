@@ -1,0 +1,143 @@
+ Generated template for the RedeemPage page. See http://ionicframework.com/docs/components/#navigation for more info on Ionic pages and navigation. -->
+<ion-header>
+
+    <ion-navbar color="base">
+        <button ion-button menuToggle>
+                          <ion-icon name="menu"></ion-icon>
+                        </button>
+        <ion-title>Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            redeem kulaaz points
+        </ion-list-header>
+        <ion-grid>
+            <ion-row>
+                <ion-col col-5></ion-col>
+                <ion-col col-7 text-right (click)="redeemPoints()">
+                    <button ion-button block text-uppercase color="base" class="redeem">Redeem kulaaz points</button>
+                </ion-col>
+            </ion-row>
+            <ion-row class="item-point">
+                <ion-col text-center>
+                    <div>
+                        <span>Available Kulazz Points</span>
+                        <h3>{{user.user_session.hrcRwrdPointBalance.hrcUserPointBalanceForRedemption + user.user_session.hrcRwrdPointBalance.hrcUserPointBalancePurchased}}</h3>
+                    </div>
+                </ion-col>
+                <ion-col text-center>
+                    <div>
+                        <span>Kulazz Points in Basket</span><br>
+                        <h3>{{redeem_data.totalPointsInBasket}}</h3>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid>
+            <ion-row class="item-list-title" *ngIf="basketItem.length!=0">
+                <ion-col text-left col-2>
+                    <span>S.No</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>Item Name</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>Quantity</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>Cost</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>Fee</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>Total</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="item-list" *ngFor="let basket of basketItem ; let i = index">
+                <ion-col text-left col-2>
+                    <span>{{i +1}}</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>{{basket.productSkuName}}</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <ion-input type="text" [(ngModel)]="basket.itemQuantity" class="text-field"></ion-input>
+
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>{{basket.itemsPointTotal}}</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>{{basket.itemsTotalFeePoints}}</span>
+                </ion-col>
+                <ion-col text-left col-2>
+                    <span>{{basket.itemsPointTotal + basket.itemsTotalFeePoints }}</span>
+                </ion-col>
+            </ion-row>
+            <ion-row class="cart-btn" *ngIf="basketItem.length!=0">
+                <ion-col col-4 text-right>
+                    <button ion-button block text-uppercase color="base" (click)="updateBasket(basketItem)">update basket</button>
+                </ion-col>
+                <ion-col col-4></ion-col>
+                <ion-col col-4 text-right>
+                    <button ion-button block text-uppercase color="base" (click)="clearBasket()">clear basket</button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-list-header class="catalog-header" text-uppercase color="base">
+                        Product catalog
+                    </ion-list-header>
+                </ion-col>
+            </ion-row>
+            <ion-row class="search-grid">
+                <ion-col col-4>
+                    <ion-select class="select-box select-box1" [(ngModel)]="redeem_data.cat_selected" style="max-width: 100%;">
+                        <ion-option *ngFor="let c of redeem_data.category" value={{c.id}}>{{c.value}} </ion-option>
+                    </ion-select>
+                </ion-col>
+                <ion-col col-8>
+                    <ion-input type="text" class="text-field" [(ngModel)]="redeem_data.searchString"></ion-input>
+                </ion-col>
+
+            </ion-row>
+            <ion-row class="filter-title">
+                <ion-col col-12 (click)="search()">
+                    <button ion-button block text-uppercase color="base">Search</button>
+                </ion-col>
+
+            </ion-row>
+            <ion-row>
+
+                <ion-col col-12>
+                    <ion-select style="font-size: 12px ;padding: 5px" class="select-box" (ionChange)="search()" [(ngModel)]="redeem_data.sort_selected" style="max-width: 100%;">
+                        <ion-option *ngFor="let s of redeem_data.sort" value={{s.id}}>{{s.value}} </ion-option>
+                    </ion-select>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="display-item">
+                <ion-col col-6 text-center *ngFor="let p of product_list">
+                    <span>{{p.hsProductSkuItem.hsProductSkuItemName}}</span>
+                    <div>
+                        <img style="height: 7em ; width: 7em" src="{{p.productImageUrl}}">
+                    </div>
+                    <span>{{p.hsProductSkuItem.hsProductSkuItemDiscountedPricePts}} Kulaaz points</span><br>
+                    <span>Cost {{p.hsProductSkuItem.hsProductSkuItemFaceValue}}</span>
+                    <button class="basket-btn" ion-button block color="base" (click)="addToBasket(p,'new')">Add To Basket</button>
+                </ion-col>
+
+
+            </ion-row>
+        </ion-grid>
+        <span class='paging'>
+                <span (click)="paging('-')" *ngIf="redeem_data.startIndex!=0">Previous</span> {{redeem_data.startIndex}}-{{redeem_data.endIndex}} of {{redeem_data.searchResultsTotalCount}}
+        <span (click)="paging('+')" *ngIf="redeem_data.endIndex <= redeem_data.searchResultsTotalCount">Next</span>
+        </span>
+    </div>
+</ion-content>

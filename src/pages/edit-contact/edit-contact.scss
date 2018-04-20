@@ -1,0 +1,76 @@
+page-edit-contact {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        button {
+            float: right;
+            margin-right: 1em;
+        }
+        .list1 {
+            width: 80%
+        }
+        .list2 {
+            margin-top: 2em;
+            ion-row {
+                // margin: 1em;
+            }
+            ion-list-header {
+                width: 90%;
+                font-size: 1.2rem;
+                margin: 2em 0px 0px 1.2em;
+                ion-label {
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                }
+            }
+            ion-select {
+                max-width: 100%;
+                border: 1px solid;
+            }
+            ion-label {
+                font-size: 1.4rem;
+                font-weight: bold;
+            }
+            span {
+                position: absolute;
+                right: 2em;
+                text-decoration: underline;
+                color: blue;
+            }
+        }
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+    .button-ios {
+        border-radius: 4px;
+        height: 2em;
+        font-size: 1.6rem;
+        color: #fff;
+        margin: 1.4rem 1.2rem;
+        padding: 0 1em;
+    }
+}

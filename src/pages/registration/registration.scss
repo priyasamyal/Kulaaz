@@ -1,0 +1,52 @@
+page-registration {
+    /* header designing for android and ios*/
+    .toolbar-title-ios {
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        pointer-events: auto;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+        margin-top: 6px;
+    }
+    .toolbar-title-md {
+        padding: 0 3.5em;
+        font-size: 25px;
+        font-weight: bold;
+        color: #000;
+        text-decoration: underline;
+        font-family: Open sans-serif, arial, sans-serif;
+    }
+    /* Main container for android and ios*/
+    .container {
+        -webkit-box-shadow: 1px 3px 3px 2px lightgrey;
+        margin-top: 2em;
+        padding-bottom: 3rem;
+        border-radius: 3px;
+        .list-header {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #heading {
+            padding-bottom: 0px;
+        }
+        .item-md,
+        .item-ios {
+            margin-bottom: 1em;
+        }
+        .check-container {
+            padding: 0px 0px 0px 10px;
+        }
+        .footer {
+            margin-top: 1em;
+            padding: 0em 1rem 0em 1rem;
+            button {
+                color: #fff;
+                background-color: #003333;
+                font-size: 2rem;
+                height: 1.8em;
+            }
+        }
+    }
+}

@@ -1,0 +1,112 @@
+<!--
+  Generated template for the CreateGroupPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color="base">
+
+        <ion-title class="header-title">Kulaaz</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <div class="container">
+        <ion-list-header class="list-header" text-uppercase color="base">
+            {{title}}
+        </ion-list-header>
+        <!-- <button ion-button text-uppercase color="base">create group</button> -->
+        <ion-row>
+            <ion-col col-6 (click)="previewGroup()">
+                <button class="btn" ion-button color="base" *ngIf="!isEdit">PREVIEW MESSAGE</button>
+
+            </ion-col>
+            <ion-col col-6>
+                <button class="btn" ion-button color="base" (click)="createGroup()" text-uppercase>{{title}}</button>
+            </ion-col>
+        </ion-row>
+        <ion-list radio-group [(ngModel)]="radioOptions">
+            <ion-item no-lines>
+                <ion-label stacked class="title">Group Name</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]="hrcUserGroup.hrcUserGroupName"></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Group Objectives</ion-label>
+                <ion-textarea type="text" class="text-field" rows='4' [(ngModel)]="hrcUserGroup.hrcUserGroupObjectives"></ion-textarea>
+            </ion-item>
+            <ion-grid class="checkbox-container">
+                <ion-row>
+                    <ion-col>
+                        <span style="font-size: 11px; font-weight: bold; margin-left: 1rem">Purpose</span>
+
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item no-lines>
+
+                            <ion-radio color="base" [checked]='hrcUserGroup.hrcIsGroupGiftUserGroup' value="1"></ion-radio>
+                            <ion-label class="radio-item">Group Gift</ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item no-lines>
+                            <ion-radio color="base" [checked]='hrcUserGroup.hrcIsGroupRewardUserGroup' value="2"></ion-radio>
+                            <ion-label class="radio-item">Group Reward</ion-label>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item no-lines>
+                            <ion-radio color="base" [checked]='hrcUserGroup.hrcIsFundraisingUserGroup' value="3"></ion-radio>
+                            <ion-label class="radio-item">Fund Raising </ion-label>
+                        </ion-item>
+
+                    </ion-col>
+                </ion-row>
+
+            </ion-grid>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Event Start Date</ion-label>
+                <ion-datetime class="text-field" displayFormat="DD/MM/YYYY" [(ngModel)]="hrcUserGroup.hrcUserGroupEventStartDate"></ion-datetime>
+
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Event End Date</ion-label>
+                <ion-datetime class="text-field" displayFormat="DD/MM/YYYY" [(ngModel)]="hrcUserGroup.hrcUserGroupEndDate"></ion-datetime>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Member e-mail(with comma separate)</ion-label>
+                <ion-textarea [disabled]="isEdit" type="text" rows='4' style='font-size: 12px;' class="text-field" [(ngModel)]="groupMemberList"></ion-textarea>
+
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Can Members Extend Invitation?</ion-label>
+                <ion-checkbox color="base" [(ngModel)]='hrcUserGroup.hrcCanInvitationBeExtendedByMember'></ion-checkbox>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Message Subject</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]='hrcUserGroup.hrcUserGroupInvMsgSubject'></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Message Body</ion-label>
+                <ion-textarea type="text" rows='4' class="text-field" [(ngModel)]='hrcUserGroup.hrcUserGroupInvMsgBody'></ion-textarea>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Message Footer</ion-label>
+                <ion-input type="text" class="text-field" [(ngModel)]='hrcUserGroup.hrcUserGroupInvMsgFooter'></ion-input>
+            </ion-item>
+            <ion-item no-lines>
+                <ion-label stacked class="title">Send Auto Reminder To Members</ion-label>
+                <ion-checkbox color="base" [(ngModel)]='hrcUserGroup.hrcIsAutomaticRemindersEnabled'></ion-checkbox>
+            </ion-item>
+
+        </ion-list>
+    </div>
+</ion-content>
